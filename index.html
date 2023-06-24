@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Lexend:wght@200;300;400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="#library" class="logo">Library System</a>
+        <nav>
+            <a href="#books" onclick="scrollToBooks()">Books</a>
+            <a href="#register">Register</a>
+            <a href="#contactus">Contact Us</a>
+            <a href="#logout">Logout</a>
+        </nav>
+    </header>
+<!-- <----- Book Table start------------------>
+
+    <section class="table" id="books">
+        <table id="book">
+           <tr height="50">
+            <th colspan="10" style="font-size: 30px;">Books</th>
+           </tr>
+            <tr>
+                <th>Book ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Availability</th>
+            </tr>
+
+            <tr>
+                <td rowspan="1">1</td>
+                <td><a href="https://www.amazon.in/HTML-CSS-Complete-Reference-Fifth/dp/0071496297" style="font-weight: bold;">Book Title 1</a>
+                    <table>
+                        <tr>
+                            <td>Publication Date:2000</td>
+                        </tr>
+                        <tr>
+                            <td>Page Count:250</td>
+                        </tr>
+                        <tr>
+                            <td>ISBN: 123-4567890123</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Author Name 1</td>
+                <td>Genre 1</td>
+                <td>Available</td>
+            </tr>
+
+            <tr>
+                <td rowspan="1">2</td>
+                <td><a href="" style="font-weight: bold;">Book Title 2</a>
+                    <table>
+                        <tr>
+                            <td>Publication Date:2005</td>
+                        </tr>
+                        <tr>
+                            <td>Page Count:300</td>
+                        </tr>
+                        <tr>
+                            <td>ISBN-100071496297</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Author Name 2</td>
+                <td>Genre 2</td>
+                <td>Not Available</td>
+            </tr>
+
+            <tr>
+                <td rowspan="1">3</td>
+                <td><a href="https://www.amazon.com/HTML-CSS-Design-Build-Websites/dp/1118008189" style="font-weight: bold;">Book Title 3</a>
+                    <table>
+                        <tr>
+                            <td>Publication Date:2010</td>
+                        </tr>
+                        <tr>
+                            <td>Page Count:350</td>
+                        </tr>
+                        <tr>
+                            <td>ISBN-101118008189</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Author Name 3</td>
+                <td>Genre 3</td>
+                <td>Available</td>
+            </tr>
+        </table>
+    </section>
+<!-- <----------Table End----------->
+
+<!--Registration form start-->
+<section id="register" class="container">
+    <form class="form" onsubmit="return myfun()">
+        <h1 style="font-size: 30px;">Register</h1><br>
+        <label for="fname"><b>First Name:</b></label>
+        <input type="text" name="fname" id="fname" value="" required><br>
+
+        <label for="lname"><b>Last Name:</b></label>
+        <input type="text" name="lname" id="lname" value="" required><br>
+
+        <label for="dob"><b>Date of Birth:</b></label>
+        <input type="date" value="" name="dob" id="dob"><br>
+
+        <label for="age"><b>Age:</b></label><br>
+        <input type="number" name="age" value="" id="age" min="5" max="100"><br>
+
+        <label for="email"><b>Email:</b></label><br>
+        <input type="email" value="abc@abc.com" name="email" id="email" required><br>
+
+        <label for="psw"><b>Password:</b></label>
+        <input type="password" placeholder="Enter Password" value="1234" name="psw" id="psw">
+        <span id="psw-match"></span><br>
+
+        <label for="psw-repeat"><b>Confirm Password:</b></label>
+        <input type="password" placeholder="Confirm Password" value="1234" name="psw-repeat" id="psw-repeat"><br><br>
+
+        <span id="psw-match2"></span>
+
+        
+        <button type="submit" class="registerbtn" style="font-size: 16px;">Register</button>
+    </form>
+</section>
+
+<!--Registration Form end-->
+
+<!-----JavaScript button fuctions start------->
+<script>
+    function myfun() {
+        var password = document.getElementById("psw").value;
+        var passwordMatch = document.getElementById("psw-repeat").value;
+        if (password == "") {
+            document.getElementById("psw-match").innerHTML = "**please fill password currectly";
+            return false;
+        } else if (passwordMatch == "") {
+            document.getElementById("psw-match").innerHTML = "";
+            document.getElementById("psw-match2").innerHTML = "**please fill password currectly";
+            return false;
+        }
+        else if (password != passwordMatch) {
+            document.getElementById("psw-match2").innerHTML = "**Password does not match";
+            return false;
+        } else if (password == passwordMatch) {
+            document.getElementById("psw-match2").innerHTML = "Password Matched";
+            document.getElementById("psw-match").innerHTML = "";
+            return false;
+        }
+    }
+</script>
+<script>
+    function scrollToBooks() {
+      const booksSection = document.getElementById('books');
+      booksSection.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+<!-----JavaScript button fuctions end-------> 
+</body>
+</html>
